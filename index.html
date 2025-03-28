@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IOTACOIN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            scroll-behavior: smooth;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 50px;
+            background-color: white;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .navbar a {
+            text-decoration: none;
+            color: black;
+            margin: 0 15px;
+            cursor: pointer;
+        }
+        .navbar .login {
+            background-color: #6c5ce7;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+        }
+        .content {
+            max-width: 500px;
+        }
+        .content h1 {
+            font-size: 36px;
+            color: black;
+        }
+        .content p {
+            color: #555;
+        }
+        .btn {
+            background-color: #6c5ce7;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .home-section {
+            text-align: center;
+            padding: 50px;
+            background-color: #fff;
+        }
+        .features, .rewards-container, .services-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .feature-card, .reward-card, .service-card {
+            background: #f1f1f1;
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+            text-align: center;
+        }
+        .feature-card h3, .reward-card h3, .service-card h3 {
+            color: black;
+        }
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .service-card {
+            background: #f1f1f1;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        h4 {
+            height: 200px;
+            width: 200x;
+            font-size: 50px;
+            
+        }
+        .underline {
+            grid-column: span 3;
+            height: 2px;
+            background-color: black;
+            margin: 10px 0;
+            border-bottom: 2px dotted black;
+        }
+        .learn-more {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .learn-more a {
+            background-color: #1f16d3da;
+            color: rgb(255, 255, 255);
+            padding: 12px 24px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+        }
+        .testimonial-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 20px;
+            padding: 20px;
+            white-space: nowrap;
+        }
+        .testimonial-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 250px;
+            display: inline-block;
+            flex: none;
+            white-space: normal;
+            word-wrap: break-word;
+        }
+        .testimonial-card img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+        .stars {
+            color: gold;
+            margin-bottom: 10px;
+        }
+        .faq-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 50px;
+            background-color: #fff;
+        }
+        .faq-container {
+            display: flex;
+            max-width: 1000px;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .faq-text {
+            flex: 1;
+            max-width: 400px;
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        .faq-image {
+            flex: 1;
+            max-width: 400px;
+        }
+        .faq-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .faq-box {
+            background: #6c5ce7;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .faq-box p {
+            margin: 0;
+            display: none;
+        }
+        .cta-section {
+            text-align: center;
+            background-color: #6c5ce7;
+            color: white;
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        .cta-button {
+            background: black;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }.footer {
+            background-color: #f0f0f0;
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            text-align: left;
+        }
+        .footer div {
+            flex: 1;
+            margin: 10px;
+        }
+        .footer h3 {
+            margin-bottom: 10px;
+        }
+        .footer a {
+            display: block;
+            color: black;
+            text-decoration: none;
+            margin-bottom: 5px;
+        }
+        .footer .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+        .footer .subscribe {
+            display: flex;
+            align-items: center;
+        }
+        .footer input {
+            padding: 5px;
+            border: 1px solid black;
+            border-radius: 3px;
+            margin-right: 5px;
+        }
+        .footer button {
+            background: black;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function scrollToHome() {
+            document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+        }
+        function scrollToAboutUs() {
+            document.getElementById('about-us-section').scrollIntoView({ behavior: 'smooth' });
+        }
+        function scrollToServices() {
+            document.getElementById('services-section').scrollIntoView({ behavior: 'smooth' });
+        }
+        function scrollToClients() {
+            document.getElementById('clients-section').scrollIntoView({ behavior: 'smooth' });
+        }
+        function toggleFAQ(event) {
+            var answer = event.currentTarget.querySelector("p");
+            answer.style.display = answer.style.display === "block" ? "none" : "block";
+        }
+        window.addEventListener("scroll", function() {
+            var footer = document.querySelector(".footer");
+            if (window.scrollY + window.innerHeight >= document.body.scrollHeight) {
+                footer.style.backgroundColor = "#e0e0e0";
+            } else {
+                footer.style.backgroundColor = "#f0f0f0";
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="navbar">
+        <div><strong>IOTACOIN</strong></div>
+        <div>
+            <a onclick="scrollToHome()">Home</a>
+            <a onclick="scrollToAboutUs()">About Us</a>
+            <a onclick="scrollToServices()">Our Services</a>
+            <a onclick="scrollToClients()">Our Works</a>
+            <a href="toggleFAQ()">FAQ</a>
+            <a href="#cta-section">Log In</a>
+        </div>
+    </div>
+    <div id="home" class="container">
+        <div class="content">
+            <h1>Automate Your Workflow with us.</h1>
+            <p>Streamline your crypto tasks, enhance trading efficiency, and save time with our seamless automation solutions.</p>
+            <a href="signup.html" class="btn">Contact Now</a>
+            <p><small>Trusted 6000+ Customers Including: FlowSync, TaskGenius, Elementor Pro</small></p>
+        </div>
+        <div class="home">
+            <img src="Hero.webp" height="400px" width="400px" alt="dashboard">
+        </div>
+    </div>
+    
+    <div id="about-us-section" class="home-section">
+        <div class="about-us">
+            <h2>Start building your crypto portfolio today!</h2>
+            <p>Cryptotier offers a range of powerful features, making it the ultimate platform to start trading.</p>
+            <div class="features">
+                <div class="feature-card">
+                    <img src="Portfolio.jpg" height="40px" width="40px" alt="Portfolio Icon">
+                    <h3>Your portfolio</h3>
+                    <p>Buy and sell popular portfolio digital currencies, keep track of them in the one place.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="Recurring.webp" height="40px" width="40px" alt="Recurring Buys Icon">
+                    <h3>Recurring buys</h3>
+                    <p>Invest in cryptocurrency slowly over time by scheduling buys daily, weekly, or monthly.</p>
+                </div>
+                <div class="feature-card">
+                    <img src="Mobileapp.webp" height="40px" width="40px" alt="Mobile Apps Icon">
+                    <h3>Mobile apps</h3>
+                    <p>Mobile apps keep track of popular portfolio digital currencies in one place. Stay on top.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="about-us">
+            <h2>Earn unlimited rewards in crypto!</h2>
+            <p>Learn how different cryptocurrencies work and earn a little of each to try them out yourself.</p>
+            <div class="rewards-container">
+                <div class="reward-card">
+                    <img src="fetch-ai-icon.png" height="150px" width="150px" alt="Fetch.ai">
+                    <h3>Fetch.ai</h3>
+                    <p>Earn: $2.36</p>
+                </div>
+                <div class="reward-card">
+                    <img src="clover-finance-icon.jpg" height="150px" width="150px" alt="Clover Finance">
+                    <h3>Clover Finance</h3>
+                    <p>Earn: $4.36</p>
+                </div>
+                <div class="reward-card">
+                    <img src="graph.jpg" height="150px" width="150px" alt="The Graph">
+                    <h3>The Graph</h3>
+                    <p>Earn: $8.36</p>
+                </div>
+            </div>
+        </div>
+    
+    <div id="services-section" class="home-section">
+        <h2>Our Services</h2>
+        <div class="services-container">
+                <div class="service-card">
+                    <h4>Our Service</h4>
+                </div>
+            <div class="service-card">
+                <img src="Exchange.webp" height="100px" width="100px" alt="Coinbase Exchange">
+                <h3>Coinbase Exchange</h3>
+                <p>A user-friendly platform for buying, selling, and storing cryptocurrencies, ideal for beginners.</p>
+            </div>
+            <div class="service-card">
+                <img src="Binance Trading.png" height="100px" width="100px" alt="Binance Trading">
+                <h3>Binance Trading</h3>
+                <p>A global exchange offering advanced trading features, including spot trading, futures, and staking.</p>
+            </div>
+            <div class="underline"></div>
+            <div class="service-card">
+                <img src="Kraken Staking.jpg" height="100px" width="100px" alt="Kraken staking">
+                <h3>Kraken Staking</h3>
+                <p>A secure platform for trading and earning rewards by staking various cryptocurrencies.</p>
+            </div>
+            <div class="service-card">
+                <img src="Wallet.webp" height="100px" width="100px" alt="Crypto Wallet">
+                <h3>Crypto Wallet</h3>
+                <p>A digital tool for securely storing, sending, and receiving cryptocurrencies.</p>
+            </div>
+            <div class="learn-more">
+                <h3>What about our output ?!</h3><br>
+                <p> At IOTACOIN, we prioritize delivering high-quality and efficient solutions tailored to our users' needs. Our outputs are 
+                    designed to enhance your trading experience, ensuring seamless transactions, secure exchanges, and real-time analytics. 
+                    With a focus on accuracy, reliability, and innovation, we provide cutting-edge automation that simplifies crypto management while maximizing efficiency. Whether 
+                    it's coin exchanges, Binance trading, or portfolio management, our outputs are optimized to help you achieve the best results 
+                    with minimal effort.</p>
+                <a href="learnmore.html">Learn-More</a>
+            </div>
+        </div>
+        <div id="clients-section" class="home-section">
+            <h2>Our Satisfied Clients</h2>
+                <div class="testimonial-container">
+                    <div class="testimonial-card">
+                        <img src="customer1.jpg" alt="Client">
+                        <h3>Maximilian Chase</h3>
+                        <p>@MaxChaseOfficial</p>
+                        <div class="stars">⭐⭐⭐⭐</div>
+                        <p>Cryptotier made my crypto journey seamless! <br>
+                            The platform is easy to use,<br>
+                            and I started earning rewards in no time.</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <img src="customer2.jpg" alt="Client">
+                        <h3>Ethan Storm</h3>
+                        <p>@TheSterling</p>
+                        <div class="stars">⭐⭐⭐⭐</div>
+                        <p>I love how secure and feature-rich Cryptotier is. <br>
+                            The staking rewards and <br>
+                             trading tools are top-notch.</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <img src="customer3.jpg" alt="Client">
+                        <h3>Nolan Brooks</h3>
+                        <p>@wonderall7</p>
+                        <div class="stars">⭐⭐⭐⭐</div>
+                        <p>Thanks to Cryptotier, I learned about different <br>
+                            cryptocurrencies and <br>even earned some for free.</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <img src="customer3.jpg" alt="Client">
+                        <h3>Alex hales</h3>
+                        <p>@meallet</p>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>Thanks to Cryptotier, I learned about different <br>
+                            cryptocurrencies and <br>
+                             even earned some for free.</p>
+                    </div>
+                </div>
+        </div>  
+        <div id="faq-section" class="faq-section">
+            <h2>FAQs</h2>
+            <div class="faq-container">
+                <div class="faq-text">
+                    <div class="faq-box" onclick="toggleFAQ(event)">
+                        <strong>How can I earn cryptocurrency?</strong>
+                        <p>You can earn cryptocurrency through trading, staking, mining, and participating in airdrops or reward programs.</p>
+                    </div>
+                    <div class="faq-box" onclick="toggleFAQ(event)">
+                        <strong>Are crypto transactions anonymous?</strong>
+                        <p>While some cryptocurrencies offer privacy features, most transactions are recorded on a public ledger.</p>
+                    </div>
+                    <div class="faq-box" onclick="toggleFAQ(event)">
+                        <strong>What is blockchain?</strong>
+                        <p>Blockchain is a decentralized digital ledger that records transactions securely across multiple computers.</p>
+                    </div>
+                </div>
+                <div class="faq-image">
+                    <img src="FAQ.jpg" alt="FAQ Image">
+                </div>
+            </div>
+            <div class="cta-section">
+                <h3>Don't Miss Out – Get Started Now!</h3>
+                <p>Life gets busy, but your crypto goals shouldn't be put on hold. Stay on track with ease.</p>
+                <a href="#" class="cta-button">Get started</a>
+            </div>
+        </div>
+        <footer class="footer">
+            <div>
+                <h3>About Us</h3>
+                <p>The network mints branded digital tokens unique to your online presence, allowing you to own, value.</p>
+            </div>
+            <div>
+                <h3>Quick Links</h3>
+                <a href="about_us.html">About Us</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div>
+                <h3>Company</h3>
+                <a href="partnership.html">Partnerships</a>
+                <a href="invester.html">Investor Relations</a>
+                <a href="career.html">Careers</a>
+                <a href="press.html">Press</a>
+            </div>
+            <div>
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <span>📷</span>
+                    <span>📘</span>
+                    <span>🐦</span>
+                    <span>🐱</span>
+                </div>
+                <p>15% off for subscribers</p>
+                <div class="subscribe">
+                    <input type="email" placeholder="Enter your email">
+                    <button>Subscribe</button>
+                    <a onclick="subscribe.html"></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
